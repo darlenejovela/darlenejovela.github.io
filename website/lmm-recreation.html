@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recreations</title>
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            font-family: Poppins, sans-serif;
+            margin: 0;
+            opacity:0;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity:1;
+            }
+        }
+        header {
+            background-color:#eea11b;
+            padding:8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+        h2 {
+            display:flex;
+            text-align:center;
+            transition: all 0.3s;
+        }
+        h2:hover {
+            cursor:pointer;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            padding: 5px 10px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 100px;
+            width: 100px;
+            margin-right: 15px;
+        }
+        nav a {
+            margin:  30px;
+            color: white;
+            text-decoration: underline;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        nav a:hover{
+            cursor:pointer;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            padding: 5px 10px;
+        }
+        div a {
+            color:white;
+            text-decoration: underline;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown a {
+            color:white;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 10px 10px;
+            text-decoration: none;
+            display: block;
+        }
+        .navbar-content{
+            color: #f1eee9;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color:#f1f1f1;
+        }
+        .banner {
+            position: relative;
+            width: 100%;
+            height: 270px;
+            overflow: hidden;
+        }
+        .banner::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 80px;
+            width: 100%;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 2) 100%);
+        }
+        .overlay-text {
+            position: absolute;
+            top: 28%; 
+            left: 35%; 
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5); 
+            padding: 5px;
+            font-size: 70px;
+            text-align:center;
+            font-weight: bold;
+            animation:rise 1s ease-in forwards;
+        }
+        @keyframes rise {
+            0% {
+                transform: translateY(40px);
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        .catchphrase {
+                text-align:center;
+                font-weight: bold;
+                font-size:32px;
+                margin-top:50px;
+                text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+                animation:rise 1.5s ease-in forwards;
+        }
+        @keyframes rise {
+            0% {
+                transform: translateY(40px);
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        .catchphrase h4 {
+            font-size:17px;
+            text-align:center;
+            margin-left:1px;
+           
+        }
+        .restaurant-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 2000px;
+            margin-top: 75px;
+            margin-left: 50px;
+            margin-bottom: 30px;
+            
+        }
+        .restaurant-card {
+            background-color: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            text-align: center;
+            height: 400px;
+            width: 400px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            animation:rise 1.5s ease-in forwards;
+        }
+        @keyframes rise {
+            0% {
+                transform: translateY(40px);
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        .restaurant-card img {
+            height:400px;
+            width:400px;
+        }
+        .restaurant-card p {
+            padding:5px;
+        }
+        .image-container {
+            position: relative;
+            width: 100%;
+            height: 60%;
+            overflow: hidden;
+            }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            }
+        .image-gradient {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 60%;
+            background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, white 100%);
+        }
+
+        .restaurant-card h3 {
+            font-size: 18px;
+            margin: 8px 0 4px;
+        }
+
+        .restaurant-card .description {
+            font-size: 14px;
+            color: #555;
+            margin: 0 12px 6px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+          <img src="logo.png" width="100" height="100" alt="Logo">
+          <a href="indexlmm.html"><h2>L.M.M</h2></a>
+          </div>
+        <nav>
+            <div class="dropdown">
+                <a href="#">Activities ▾</a>
+                <div class="dropdown-content">
+                    <a href="lmm-food.html"> Food </a>
+                    <a href="lmm-recreation.html"> Recreation </a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" class="navbar-content">Bookings ▾  </a>
+                <div class="dropdown-content">
+                    <a href="lmm-flights.html">Flights</a>
+                    <a href="lmm-hotels.html">Hotels</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="lmm-bookings.html" class="navbar-content">Book your trip!</a>
+            </div>
+            </div>
+        </nav>
+    </header>
+    <div class="banner">
+        <img src="activitiespic(1).png" alt="new york" width="1425px">
+        <div class="overlay-text">Recreations</div>
+    </div>
+    <div class="catchphrase">
+            There's a million things you haven't done...
+            <h4>but just you wait! We'll show you!</h4>
+    </div>
+    <div class="restaurant-grid">
+        <div class="restaurant-card">
+            <img src="timesquare.jpg" alt="time square">
+            <h3>Time Square</h3>
+            <p>Known as "The Crossroads of the World," Times Square dazzles with its bright billboards, constant energy, and iconic New Year's Eve celebrations.</p>
+
+        </div>
+
+        <div class="restaurant-card">
+            <img src="centralpark.jpg" alt="Central park">
+            <h3>Central Park</h3>
+            <p>A vast green oasis in the heart of Manhattan, Central Park offers scenic walking paths, lakes, and cultural landmarks amidst the city's hustle.</p>
+            
+        </div>
+
+        <div class="restaurant-card">
+            <img src="metmuseum.jpg" alt="MET Museum">
+            <h3>The MET Museum</h3>
+            <p>One of the world's largest and most prestigious art museums, the Met houses over two million works spanning 5,000 years of history.</p>
+            
+        </div>
+        <div class="restaurant-card">
+            <img src="empire-state-building.jpg" alt="Empire state building">
+            <h3>Empire State Building</h3>
+            <p>An Art Deco masterpiece, the Empire State Building offers breathtaking views of New York City from its 86th and 102nd floor observatories.</p>
+            
+        </div>
+        <div class="restaurant-card">
+            <img src="statue-of-liberty.jpg" alt="statue of liberty">
+            <h3>Statue of Liberty</h3>
+            <p>A universal symbol of freedom, this colossal statue stands on Liberty Island and welcomes visitors arriving by ferry with panoramic views of New York Harbor.
+        </p>
+        </div>
+        <div class="restaurant-card">
+            <img src="broadway.jpg" alt="broadway">
+            <h3>See a broadway show</h3>
+            <p>Experience world-class theater and musicals in the iconic Broadway district, home to some of the most famous stages in the world.</p>
+        </div>
+        <div class="restaurant-card">
+            <img src="nineleven-memoriam-museum.jpg" alt="9/11 memorial museum">
+            <h3>9/11 Memorial & Museum</h3>
+            <p>A solemn tribute to the victims of the September 11 attacks, featuring twin reflecting pools and a museum documenting the events and aftermath.</p>
+            
+        </div>
+        <div class="restaurant-card">
+            <img src="brooklyn-bridge.jpg" alt="brooklyn bridge">
+            <h3>Brooklyn Bridge</h3>
+            <p>This historic suspension bridge connects Manhattan and Brooklyn, offering stunning skyline views for pedestrians and cyclists alike.</p>
+        </div>
+        <div class="restaurant-card">
+            <img src="washingtonsquarepark.webp" alt="washington square park">
+            <h3>Washington Square Park</h3>
+            <p>A lively Greenwich Village park known for its iconic arch, street performers, and vibrant community atmosphere.</p>
+            
+        </div>
+    </div>
+    
+    <br>
+    <div class="fn">
+        <a href="#">Book your tickets now!</a>
+    </div>
+</body>
+</html>
