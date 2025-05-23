@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hotels</title>
+        <link rel="icon" href="logo.png" type="image/x-icon">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <style>
+            html {
+                scroll-behavior: smooth;
+            }
+            body {
+                font-family: Poppins, sans-serif;
+                margin: 0;
+                opacity:0;
+                animation: fadeIn 1s ease-in-out forwards;
+            }
+            @keyframes fadeIn {
+                to {
+                    opacity:1;
+                }
+            }
+            header {
+                background-color:#eea11b;
+                padding:8px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                color: white;
+            }
+            h2 {
+                display:flex;
+                text-align:center;
+                transition: all 0.3s;
+            }
+            h2:hover {
+                cursor:pointer;
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+                border-radius: 5px;
+                padding: 5px 10px;
+            }
+            .logo {
+                display: flex;
+                align-items: center;
+            }
+            .logo img {
+                height: 100px;
+                width: 100px;
+                margin-right: 15px;
+            }
+            nav a {
+                margin:  30px;
+                color: white;
+                text-decoration: underline;
+                font-weight: bold;
+                transition: all 0.3s;
+            }
+            nav a:hover{
+                cursor:pointer;
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+                border-radius: 5px;
+                padding: 5px 10px;
+            }
+            div a {
+                color:white;
+                text-decoration: underline;
+            }
+            .dropdown {
+                position: relative;
+                display: inline-block;
+            }
+            .dropdown a {
+                color:white;
+            }
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: white;
+                min-width: 160px;
+                box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+                z-index: 1;
+            }
+            .dropdown-content a {
+                color: black;
+                padding: 10px 10px;
+                text-decoration: none;
+                display: block;
+            }
+            .navbar-content{
+                color: #f1eee9;
+            }
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+            .dropdown-content a:hover {
+                background-color:#f1f1f1;
+            }
+            .banner {
+                position: relative;
+                width: 100%;
+                height: 270px;
+                overflow: hidden;
+            }
+            .banner::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                height: 80px;
+                width: 100%;
+                background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 2) 100%);
+            }
+            .overlay-text {
+                position: absolute;
+                top: 28%; 
+                left: 42%; 
+                color: white;
+                background-color: rgba(0, 0, 0, 0.5); 
+                padding: 5px;
+                font-size: 70px;
+                text-align:center;
+                font-weight: bold;
+                animation:rise 1s ease-in forwards;
+            }
+            @keyframes rise {
+                0% {
+                    transform: translateY(40px);
+                    opacity: 0.5;
+                }
+                100% {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+            }
+            .catchphrase {
+                text-align:center;
+                font-weight: bold;
+                font-size:35px;
+                margin-top:40px;
+                text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+                animation:rise 1.5s ease-in forwards;
+            }
+            @keyframes rise {
+                0% {
+                    transform: translateY(40px);
+                    opacity: 0.5;
+                }
+                100% {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+            }
+            .catchphrase h4 {
+                font-size:16px;
+                text-align:center;
+                margin-left:0px;
+            }
+
+            .container {
+                display:grid;
+                width: auto; 
+                justify-content: center;
+                grid-template-columns: 700px 360px;
+                grid-template-areas: 
+                "img1 exp1"
+                "img2 exp2"
+                "img3 exp3"
+                "img4 exp4"
+                ;
+                margin-top:50px;
+                column-gap:0px;
+                margin-left:0px;
+                row-gap:50px;
+                padding:10px;
+                text-align:justify;
+                hyphens:auto;
+                font-size:20px;
+                line-height: 20px;
+                padding-top:0px;
+                animation:rise 1.5s ease-in forwards;
+            }
+            @keyframes rise {
+                0% {
+                    transform: translateY(40px);
+                    opacity: 0.5;
+                }
+                100% {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+            }
+            .container img {
+                border-radius: 25px;
+                border:black solid 2px;
+                width:400px;
+                height:210px;
+            }
+            .exp1 {
+                grid-template-areas: exp1;
+            }
+            .img1 {
+                grid-area:img1;
+                
+            }
+            div p {
+                font-size:25px;
+                font-weight:bold;
+                text-align:left;
+                hyphens:auto;
+            }
+            .img2 {
+                grid-area:img2;
+            }
+            .exp2 {
+                grid-template-areas: exp2;
+            }
+            .exp3 {
+                grid-template-areas: exp3;
+            }
+            .img3 {
+                grid-area:img3;
+            }
+            .exp4 {
+                grid-template-areas: exp4
+            }
+            .img4 {
+                grid-area:img4;
+            }
+            .exp1, .exp2, .exp3, .exp4 {
+                margin-left:-270px;
+                padding:5px;
+                font-weight:400;
+                font-size:16px; 
+                padding-top:0px;
+                width: 750px;
+                hyphens:none;
+            }
+            .img1, .img2, .img3, .img4 {
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+                border-radius: 25px;
+                width: 400px;
+                height: 210px;
+            }
+            .icon {
+                font-size: 10px;
+                margin-top:10px;
+                margin-right: 6px;
+            }
+            .icon img {
+                width:40px;
+                height:40px;
+                display:flex;
+                align-items:center;
+                
+            }
+            .text {
+                position:relative;
+                font-size:15px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+              <img src="logo.png" width="100" height="100" alt="Logo">
+              <a href="index.html"><h2>L.M.M</h2></a>
+              </div>
+            <nav>
+                <div class="dropdown">
+                    <a href="#">Activities ▾</a>
+                    <div class="dropdown-content">
+                        <a href="lmm-food.html"> Food </a>
+                        <a href="lmm-recreation.html"> Recreation </a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="#" class="navbar-content">Bookings ▾  </a>
+                    <div class="dropdown-content">
+                        <a href="lmm-flights.html">Flights</a>
+                        <a href="lmm-hotels.html">Hotels</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="lmm-bookings.html" class="navbar-content">Book your trip!</a>
+                </div>
+                </div>
+            </nav>
+        </header>
+        <div class="banner">
+            <img src="accommodationpic.png" alt="new york" width="1425" height="270">
+            <div class="overlay-text">Hotels</div>
+        </div>
+        <div class="catchphrase">
+            Feeling <i>helpless</i> on where to stay?
+            <h4>Take a break — we'll find you the perfect room!</h4>
+        </div>
+       
+        <div class="container">
+            <div class="img1">
+                <img src="hotel1.jpg">
+            </div>
+            <div class="exp1">
+                <p>The St. Regis New York</p>
+                Located on Fifth Avenue, the St. Regis New York is a timeless symbol of luxury, offering elegant rooms with classic decor, marble bathrooms, and 24-hour butler service. Built in 1904, it blends historic charm with modern sophistication and is home to the legendary King Cole Bar, where the Bloody Mary was born.
+                
+            </div>
+            
+            <div class="img2">
+                <img src="hotel2.jpg">
+            </div>
+            <div class="exp2">
+                <p>W New York Times Square</p>
+                Set in the heart of Times Square, the W New York offers a bold, modern stay with sleek design, floor-to-ceiling views, and a high-energy atmosphere. It's a favorite for those seeking a vibrant urban experience with on-site nightlife, stylish lounges, and cutting-edge amenities.
+            </div>
+            <div class="img3">
+                <img src="hotel3-plazahotel.jpg">
+            </div>
+            <div class="exp3">
+                <p>The Plaza Hotel</p>
+                A New York icon since 1907, The Plaza combines Gilded Age grandeur with contemporary luxury. Overlooking Central Park, the hotel features opulent suites, world-class dining, the famed Palm Court for afternoon tea, and a location steeped in history and elegance.
+            </div>
+            <div class="img4">
+                <img src="hotel4-fourseasons.jpg">
+            </div>
+            <div class="exp4">
+                <p>Four Seasons Hotel New York</p>
+                Designed by I.M. Pei, this sleek Midtown tower offers understated luxury and sweeping views of the city. Known for its spacious suites, impeccable service, and serene atmosphere, the Four Seasons is a refined retreat just steps from Central Park and top attractions.
+            </div>
+        </div>
+        <br>
+        <br>
+    </body>
+</html>
